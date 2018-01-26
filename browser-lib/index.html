@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <script src="bundle.js"></script>
+    <script>
+          console.log('SVM '+window["SVM"])
+          console.log(JSON.stringify(Object.keys(window["SVM"])))
+          window["SVM"].init().then(function(SVM){
+            var data = [
+            [1,2,3,4,5],
+            [11,21,31,41,51],
+            [21,22,23,24,25],
+            [31,32,33,34,35]
+
+            ]
+            var labels = [1,2,2,1]
+            var options = {kernel: SVM.KERNEL_TYPES.RBF, // The type of kernel I want to use
+                      type: SVM.SVM_TYPES.C_SVC,    // The type of SVM I want to run
+                      cost: 1000,
+                      gamma: 0.001
+            }
+            const svm = new SVM(options);
+            svm.train(data, labels);
+            var x = svm.predictOne([1,2,3,4,5])
+            console.log('prediction '+x)
+            console.log('ok')
+          });
+    </script>
+  </body>
+</html>
