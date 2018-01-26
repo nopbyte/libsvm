@@ -9,6 +9,7 @@ Afterwards, you can install webpack (if you don't have it globally yet), and the
 Then, put the index.html, the bundle.js files and the compiled wasm file from the dist folder in a single folder, start a webserver and then visit the page. In a UNIX machine with node js this can be done like this:
 
 ```
+ln -s ../dist/wasm/libsvm.wasm  libsvm.wasm
 npm install -g webpack
 webpack
 npm install -g http-server
